@@ -3,12 +3,13 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
-  <base href="/">
+  <title>Mithril - Tachyons</title>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
 </head>
 
 <body>
-  <div id="app">Loading... Please wait</div>
+	<div id="users-list-wrapper"></div>
+	<div id="products-list-wrapper"></div>
   
   <% if (process.env.NODE_ENV === 'development') { %>
   <script type="text/javascript" src="http://localhost:8080/webpack-dev-server.js"></script>

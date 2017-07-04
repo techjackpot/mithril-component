@@ -1,15 +1,8 @@
 import "styles/main.scss"
 import m from "mithril"
 
-import { routes, generate } from "routes/routes"
+import UserView from "./views/UserView";
+import ProductView from "./views/ProductView";
 
-
-var routes_values = Object.values(routes);
-var r = {}
-
-for (var i = 0; i < routes_values.length; i++) {
-    r[routes_values[i].path] = {render: routes_values[i].render}
-}
-
-m.route.prefix("")
-m.route(document.getElementById("app"), "/", r)
+m.mount(document.getElementById('users-list-wrapper'), UserView);
+m.mount(document.getElementById('products-list-wrapper'), ProductView);

@@ -4,92 +4,100 @@
     box-sizing: border-box;
 }
 
-body {
-    background: #F1F1F1;
-    font-family: Helvetica
+html {
+    background: #3e3e3e;
+    font-size: 36px;
 }
 
-.container {
-    width: 1050px;
-    margin: 0 auto;
-}
-
-#header {
-    width: 100%;
-    height: 56px;
-    background: #478A4C;
-    line-height: 56px;
-    color: #fff;
-    position: absolute;
-    z-index: 10;
-
-    a {
-        color: #fff;
-        text-decoration: none;
-    }
-
-    &.shadow::after {
-        opacity: 1;
-    }
-
-    &::after {
-        box-shadow: inset 0 5px 6px -3px rgba(0, 0, 0, 0.4);
-        content: '';
-        display: block;
-        height: 6px;
-        opacity: 0;
-        position: absolute;
-        top: 100%;
-        transition: opacity 500ms;
-        width: 100%;
-        pointer-events: none;
-    }
-
-    .logo {
-        float: left;
-    }
-
-    .navlinks {
-        float: right;
-
-        ul {
-            display: inline;
+.users-list {
+    .user-item {
+        .user-pane {
+            box-sizing: content-box;
+            background-color: #3bd5d7;
+            background-repeat: no-repeat;
+            height: 0;
+            padding-top: 100%;
+            position: relative;
+            z-index: 99;
+            .user-pane-description {
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
         }
+        .user-name-wrapper {
+            position: relative;
+            background: #000;
+            color: #bdbdbd;
+            font-size: 1rem;
+            line-height: 1.7em;
+            padding: 8px 0.8em;
+            .user-name {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            &:after {
+                position: absolute;
+                right: 0;
+                bottom: 100%;
+                transform: translate(-50%, 50%);
+                content: '+';
+                display: block;
+                width: calc(1rem + 5px);
+                height: calc(1rem + 5px);
+                font-size: 1rem;
+                text-align: center;
+                line-height: 1rem;
+                background: #ec821f;
+                border-radius: 1rem;
+                color: #fff;
+                z-index: 10000;
+            }
+        }
+    }
+}
 
-        li {
-            display: inline-block;
+.products-list {
+    .product-item {
+        .product-pane {
+            box-sizing: content-box;
+            height: 0;
+            padding-top: 100%;
+            background: #3bd5d7;
+            position: relative;
+        }
+        .price-tag {
+            position: absolute;
+            bottom: 0.2em;
+            right: 0.2em;
+            background: #ec821f;
             color: #fff;
-            height: 56px;
-            border-bottom: 2px solid transparent;
-            transition: .9s;
-            opacity: .7;
-
-            &.active {
-                border-bottom-color: #fff;
-                transition: .9s;
-                opacity: 1;
+            padding: 0.4em 0.4em 0.4em 0.6em;
+            border-color: #3bd5d7;
+            outline-color: #3bd5d7;
+            letter-spacing: 1px;
+            &:before, &:after {
+                position: absolute;
+                content: '';
+                display: block;
+                left: -1px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0.2em;
             }
-
-            a {
-                padding: 0 16px;
-                display: inline-block;
-                height: 56px
+            &:before {
+                top: 0px;
+                border-color: #3bd5d7 #ec821f #ec821f #3bd5d7;
+            }
+            &:after {
+                bottom: 0px;
+                border-color: #ec821f #ec821f #3bd5d7 #3bd5d7;
             }
         }
     }
-}
-
-#main {
-    position: absolute;
-    top: 56px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: auto;
-    padding-top: 30px;
-}
-
-//temp
-.temp {
-    height: 1900px
 }
